@@ -1,0 +1,14 @@
+service: the-lake-api-express
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  environment:
+    MONGO_URI: "mongodb+srv://lake_admin:${MONGO_LAKE_PW}@cluster0.kv3gyls.mongodb.net/?retryWrites=true&w=majority"
+
+functions:
+  api:
+    handler: index.handler
+    events:
+      - httpApi: "*"
